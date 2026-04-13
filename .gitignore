@@ -58,3 +58,4 @@ test_*.py
 Thumbs.db
 .DS_Store
 action_recordings/
+idcard.jpg

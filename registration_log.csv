@@ -1,0 +1,11 @@
+timestamp,email,status,message
+2026-04-13 23:31:19,cubic4355@cock.li,ERROR,"Message: 
+Stacktrace:
+RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:8:8
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:202:5
+NoSuchElementError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:555:5
+dom.find/</<@chrome://remote/content/shared/DOM.sys.mjs:136:16
+"
+2026-04-13 23:37:08,cubic4355@cock.li,FAILED,Login failed
+2026-04-13 23:42:22,deluge4740@cock.li,FAILED,Login failed
+2026-04-13 23:48:47,crane7453@cock.li,FAILED,Signup failed

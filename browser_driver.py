@@ -14,11 +14,12 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 class BrowserDriver:
-    """Selenium browser with Tor support"""
+    """Selenium browser with Tor support and incognito mode"""
     
-    def __init__(self, headless=False, use_tor=True):
+    def __init__(self, headless=False, use_tor=False, incognito=True):
         self.headless = headless
         self.use_tor = use_tor
+        self.incognito = incognito  # Use Chrome incognito by default
         self.driver = None
     
     def initialize(self):
@@ -75,23 +76,34 @@ class BrowserDriver:
             return self._initialize_chrome()
     
     def _initialize_chrome(self):
-        """Initialize standard Chrome"""
+        """Initialize standard Chrome (with incognito and no cache)"""
         try:
             options = Options()
             
             if self.headless:
                 options.add_argument("--headless=new")
             
+            # Incognito mode (no caching, no cookies, no history)
+            if self.incognito:
+                options.add_argument("--incognito")
+            
+            # Disable cache
+            options.add_argument("--disable-cache")
+            options.add_argument("--disable-application-cache")
+            options.add_argument("--disable-offline-load")
+            options.add_argument("--disable-bundled-ppapi-flash")
+            
+            # Privacy & automation detection
             options.add_argument("--no-sandbox")
             options.add_argument("--disable-dev-shm-usage")
             options.add_argument("--disable-blink-features=AutomationControlled")
-            options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36")
+            options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36")
             options.add_experimental_option("excludeSwitches", ["enable-automation"])
             options.add_experimental_option('useAutomationExtension', False)
             
             self.driver = webdriver.Chrome(options=options)
             time.sleep(random.uniform(1, 3))
-            logger.info("✅ Chrome initialized successfully")
+            logger.info(f"✅ Chrome initialized successfully (incognito={self.incognito}, no-cache=enabled)")
             return True
             
         except Exception as e:
