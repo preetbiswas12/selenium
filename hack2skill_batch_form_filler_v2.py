@@ -13,6 +13,7 @@ from typing import Dict, List, Tuple, Optional
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import Select, WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import (
@@ -133,9 +134,13 @@ REGISTRATION_URL = "https://vision.hack2skill.com/event/solution-challenge-2026/
 CSV_FILE = r"C:\Users\preet\Downloads\selenium\accounts_created.csv"
 LOG_FILE = r"C:\Users\preet\Downloads\selenium\registration_log.csv"
 
-TIMEOUT_PAGE_LOAD = 25
-TIMEOUT_ELEMENT = 15
-OTP_WAIT_SECONDS = 20  # seconds to wait for user to enter OTP manually
+# ⚠️ INCREASED TIMEOUTS FOR SLOW NETWORK
+TIMEOUT_PAGE_LOAD = 45  # Was 25 - increased for slow networks
+TIMEOUT_ELEMENT = 30    # Was 15 - increased for form field loads
+TIMEOUT_INTERACTION = 10  # Wait for element to be interactive
+OTP_WAIT_SECONDS = 40  # seconds to wait for user to enter OTP manually
+RETRY_ATTEMPTS = 3  # Retry failed interactions up to 3 times
+RETRY_DELAY = 2  # Wait 2 seconds between retries
 
 # Selectors - THESE NEED TO BE UPDATED ONCE USER PROVIDES ACTUAL PAGE HTML
 OTP_INPUT_SELECTORS = [
@@ -222,32 +227,68 @@ def print_warning(text: str, is_substep: bool = False):
 
 def safe_fill_field(driver: webdriver.Firefox, element, value: str, field_name: str) -> bool:
     """
-    Safely fill a form field, skipping if disabled
+    Safely fill a form field with retries and proper waits
+    - Waits for element to be clickable
+    - Scrolls into view
+    - Retries on failure
     Returns: True if filled, False if skipped/error
     """
-    try:
-        # Check if disabled
-        if element.get_attribute('disabled') is not None:
-            print_warning(f"{field_name} disabled, skipping", True)
-            return False
-        
-        # Check if read-only
-        if element.get_attribute('readonly') is not None:
-            print_warning(f"{field_name} read-only, skipping", True)
-            return False
-        
-        # Fill the field
+    for attempt in range(RETRY_ATTEMPTS):
         try:
-            element.clear()
-        except:
-            pass  # Some fields may not support clear
-        
-        element.send_keys(value)
-        print_success(f"{field_name}: {value}", True)
-        return True
-    except Exception as e:
-        print_warning(f"{field_name} error: {str(e)[:40]}", True)
-        return False
+            # Check if disabled
+            if element.get_attribute('disabled') is not None:
+                print_warning(f"{field_name} disabled, skipping", True)
+                return False
+            
+            # Check if read-only
+            if element.get_attribute('readonly') is not None:
+                print_warning(f"{field_name} read-only, skipping", True)
+                return False
+            
+            # Scroll into view
+            driver.execute_script("arguments[0].scrollIntoView(true);", element)
+            time.sleep(0.5)
+            
+            # Wait for element to be clickable
+            WebDriverWait(driver, TIMEOUT_INTERACTION).until(
+                EC.element_to_be_clickable((By.XPATH, "//*"))
+            )
+            
+            # Click to focus
+            element.click()
+            time.sleep(0.3)
+            
+            # Clear field
+            try:
+                element.clear()
+            except:
+                # Some fields may not support clear - use select all instead
+                element.send_keys(Keys.CONTROL + "a")
+                time.sleep(0.2)
+            
+            # Type value
+            element.send_keys(value)
+            print_success(f"{field_name}: {value}", True)
+            return True
+            
+        except StaleElementReferenceException:
+            if attempt < RETRY_ATTEMPTS - 1:
+                print_warning(f"{field_name} stale element, retrying... (attempt {attempt + 1}/{RETRY_ATTEMPTS})", True)
+                time.sleep(RETRY_DELAY)
+                continue
+            else:
+                print_warning(f"{field_name} failed after retries", True)
+                return False
+        except Exception as e:
+            if attempt < RETRY_ATTEMPTS - 1:
+                print_warning(f"{field_name} error, retrying: {str(e)[:30]}", True)
+                time.sleep(RETRY_DELAY)
+                continue
+            else:
+                print_warning(f"{field_name} error: {str(e)[:40]}", True)
+                return False
+    
+    return False
 
 
 # ═══════════════════════════════════════════════════════════════
@@ -473,6 +514,16 @@ def fill_registration_form(driver: webdriver.Firefox, account: Dict) -> bool:
             print_step(4, "Navigating to registration form", True)
             driver.get(REGISTRATION_URL)
             time.sleep(3)
+            
+            # Wait for page to stabilize - wait for first form element
+            print_step(4, "Waiting for form to load completely", True)
+            try:
+                wait.until(EC.presence_of_element_located((By.TAG_NAME, "input")))
+                print_success("Form elements detected, proceeding...", True)
+            except TimeoutException:
+                print_warning("Form elements taking longer to load, continuing anyway", True)
+            
+            time.sleep(2)  # Extra wait for React components to render
             print_success("Registration page loaded", True)
             
             # ═══════════════════════════════════════════════════════════════
