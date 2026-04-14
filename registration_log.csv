@@ -9,3 +9,103 @@ dom.find/</<@chrome://remote/content/shared/DOM.sys.mjs:136:16
 2026-04-13 23:37:08,cubic4355@cock.li,FAILED,Login failed
 2026-04-13 23:42:22,deluge4740@cock.li,FAILED,Login failed
 2026-04-13 23:48:47,crane7453@cock.li,FAILED,Signup failed
+2026-04-14 08:59:45,crane7453@cock.li,FAILED,SIGNUP_IN_PROGRESS,"FormException: Failed to click Register: Message: Element <button class=""buttonv1Comp mt-2""> is not clickable at point (683,547) because another element <button class=""buttonv1Comp !w-full sm:!w-fit""> obscures it; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception
+Stacktrace:
+RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:8:8
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:202:5
+ElementClickInterceptedError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:354:5
+webdriverClickElement@chrome://remote/content/marionette/interaction.sys.mjs:175:11
+interaction.clickElement@chrome://remote/content/marionette/interaction.sys.mjs:134:11
+clickElement@chrome://remote/content/marionette/actors/MarionetteCommandsChild.sys.mjs:326:29
+receiveMessage@chrome://remote/content/marionette/actors/MarionetteCommandsChild.sys.mjs:205:31
+"
+2026-04-14 08:59:45,crane7453@cock.li,FAILED,SIGNUP_IN_PROGRESS,"FormException: Failed to click Register: Message: Element <button class=""buttonv1Comp mt-2""> is not clickable at point (683,547) because another element <button class=""buttonv1Comp !w-full sm:!w-fit""> obscures it; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception
+Stacktrace:
+RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:8:8
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:202:5
+ElementClickInterceptedError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:354:5
+webdriverClickElement@chrome://remote/content/marionette/interaction.sys.mjs:175:11
+interaction.clickElement@chrome://remote/content/marionette/interaction.sys.mjs:134:11
+clickElement@chrome://remote/content/marionette/actors/MarionetteCommandsChild.sys.mjs:326:29
+receiveMessage@chrome://remote/content/marionette/actors/MarionetteCommandsChild.sys.mjs:205:31
+"
+2026-04-14 08:59:45,crane7453@cock.li,FAILED,ACCOUNT_DONE,Failed at WORKFLOW_ERROR
+2026-04-14 09:05:44,crane7453@cock.li,FAILED,UNKNOWN,WorkflowException: Unexpected error: 'charmap' codec can't encode character '\u274c' in position 85: character maps to <undefined>
+2026-04-14 09:05:44,crane7453@cock.li,FAILED,ACCOUNT_DONE,Failed at UNKNOWN_ERROR
+2026-04-14 09:08:20,crane7453@cock.li,SUCCESS,ACCOUNT_DONE,Account registered
+2026-04-14 09:19:12,crane7453@cock.li,FAILED,SIGNUP_IN_PROGRESS,"FormException: Failed to click Register: Message: Element <button class=""buttonv1Comp mt-2""> is not clickable at point (683,547) because another element <button class=""buttonv1Comp !w-full sm:!w-fit""> obscures it; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception
+Stacktrace:
+RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:8:8
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:202:5
+ElementClickInterceptedError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:354:5
+webdriverClickElement@chrome://remote/content/marionette/interaction.sys.mjs:175:11
+interaction.clickElement@chrome://remote/content/marionette/interaction.sys.mjs:134:11
+clickElement@chrome://remote/content/marionette/actors/MarionetteCommandsChild.sys.mjs:326:29
+receiveMessage@chrome://remote/content/marionette/actors/MarionetteCommandsChild.sys.mjs:205:31
+"
+2026-04-14 09:19:12,crane7453@cock.li,FAILED,SIGNUP_IN_PROGRESS,"FormException: Failed to click Register: Message: Element <button class=""buttonv1Comp mt-2""> is not clickable at point (683,547) because another element <button class=""buttonv1Comp !w-full sm:!w-fit""> obscures it; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception
+Stacktrace:
+RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:8:8
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:202:5
+ElementClickInterceptedError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:354:5
+webdriverClickElement@chrome://remote/content/marionette/interaction.sys.mjs:175:11
+interaction.clickElement@chrome://remote/content/marionette/interaction.sys.mjs:134:11
+clickElement@chrome://remote/content/marionette/actors/MarionetteCommandsChild.sys.mjs:326:29
+receiveMessage@chrome://remote/content/marionette/actors/MarionetteCommandsChild.sys.mjs:205:31
+"
+2026-04-14 09:19:12,crane7453@cock.li,FAILED,ACCOUNT_DONE,Failed at WORKFLOW_ERROR
+2026-04-14 09:19:23,charlie7720@cock.li,FAILED,SIGNUP_IN_PROGRESS,"FormException: Failed to click Register: Message: Element <button class=""buttonv1Comp mt-2""> is not clickable at point (683,547) because another element <button class=""buttonv1Comp !w-full sm:!w-fit""> obscures it; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception
+Stacktrace:
+RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:8:8
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:202:5
+ElementClickInterceptedError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:354:5
+webdriverClickElement@chrome://remote/content/marionette/interaction.sys.mjs:175:11
+interaction.clickElement@chrome://remote/content/marionette/interaction.sys.mjs:134:11
+clickElement@chrome://remote/content/marionette/actors/MarionetteCommandsChild.sys.mjs:326:29
+receiveMessage@chrome://remote/content/marionette/actors/MarionetteCommandsChild.sys.mjs:205:31
+"
+2026-04-14 09:19:23,charlie7720@cock.li,FAILED,SIGNUP_IN_PROGRESS,"FormException: Failed to click Register: Message: Element <button class=""buttonv1Comp mt-2""> is not clickable at point (683,547) because another element <button class=""buttonv1Comp !w-full sm:!w-fit""> obscures it; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception
+Stacktrace:
+RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:8:8
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:202:5
+ElementClickInterceptedError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:354:5
+webdriverClickElement@chrome://remote/content/marionette/interaction.sys.mjs:175:11
+interaction.clickElement@chrome://remote/content/marionette/interaction.sys.mjs:134:11
+clickElement@chrome://remote/content/marionette/actors/MarionetteCommandsChild.sys.mjs:326:29
+receiveMessage@chrome://remote/content/marionette/actors/MarionetteCommandsChild.sys.mjs:205:31
+"
+2026-04-14 09:19:23,charlie7720@cock.li,FAILED,ACCOUNT_DONE,Failed at WORKFLOW_ERROR
+2026-04-14 09:19:35,papa9373@cock.li,FAILED,SIGNUP_IN_PROGRESS,"FormException: Failed to click Register: Message: Element <button class=""buttonv1Comp mt-2""> is not clickable at point (683,547) because another element <button class=""buttonv1Comp !w-full sm:!w-fit""> obscures it; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception
+Stacktrace:
+RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:8:8
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:202:5
+ElementClickInterceptedError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:354:5
+webdriverClickElement@chrome://remote/content/marionette/interaction.sys.mjs:175:11
+interaction.clickElement@chrome://remote/content/marionette/interaction.sys.mjs:134:11
+clickElement@chrome://remote/content/marionette/actors/MarionetteCommandsChild.sys.mjs:326:29
+receiveMessage@chrome://remote/content/marionette/actors/MarionetteCommandsChild.sys.mjs:205:31
+"
+2026-04-14 09:19:35,papa9373@cock.li,FAILED,SIGNUP_IN_PROGRESS,"FormException: Failed to click Register: Message: Element <button class=""buttonv1Comp mt-2""> is not clickable at point (683,547) because another element <button class=""buttonv1Comp !w-full sm:!w-fit""> obscures it; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception
+Stacktrace:
+RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:8:8
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:202:5
+ElementClickInterceptedError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:354:5
+webdriverClickElement@chrome://remote/content/marionette/interaction.sys.mjs:175:11
+interaction.clickElement@chrome://remote/content/marionette/interaction.sys.mjs:134:11
+clickElement@chrome://remote/content/marionette/actors/MarionetteCommandsChild.sys.mjs:326:29
+receiveMessage@chrome://remote/content/marionette/actors/MarionetteCommandsChild.sys.mjs:205:31
+"
+2026-04-14 09:19:35,papa9373@cock.li,FAILED,ACCOUNT_DONE,Failed at WORKFLOW_ERROR
+2026-04-14 09:23:44,charlie7720@cock.li,FAILED,FORM_FILLING_IN_PROGRESS,"FormException: Form fill error: Message: Element is disabled: <input id=""730869a30a85acee6c3069c28884_1_69a30a85acee6c3069c28884"" class="""" name=""730869a30a85acee6c3069c28884_1_69a30a85acee6c3069c28884"" type=""email"">
+Stacktrace:
+RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:8:8
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:202:5
+InvalidElementStateError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:439:5
+interaction.clearElement@chrome://remote/content/marionette/interaction.sys.mjs:360:11
+clearElement@chrome://remote/content/marionette/actors/MarionetteCommandsChild.sys.mjs:317:22
+receiveMessage@chrome://remote/content/marionette/actors/MarionetteCommandsChild.sys.mjs:201:16
+"
+2026-04-14 09:23:44,charlie7720@cock.li,SUCCESS,ACCOUNT_DONE,Account registered
+2026-04-14 09:39:11,papa9373@cock.li,SUCCESS,ACCOUNT_DONE,Account registered
+2026-04-14 10:29:09,uniform4162@cock.li,SUCCESS,ACCOUNT_DONE,Account registered
+2026-04-14 11:44:37,crater9671@cock.li,SUCCESS,ACCOUNT_DONE,Account registered
