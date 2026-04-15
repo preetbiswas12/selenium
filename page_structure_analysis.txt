@@ -1,0 +1,842 @@
+
+################################################################################
+# PAGE CONTENT ANALYSIS
+################################################################################
+
+================================================================================
+PAGE STRUCTURE ANALYSIS - CURRENT PAGE
+================================================================================
+
+URL: https://vision.hack2skill.com/event/solution-challenge-2026/registration?isExternalLinkRedirection=true&utm_source=hack2skill&utm_medium=homepage
+Title: Solution Challenge 2026 - Build with AI | Registration | Hack2skill
+
+FORMS: 1
+
+  Form 0: ID=goog-gt-votingForm, Method=post, Inputs=5
+
+ALL INPUTS: 58
+
+  [0] text       | Full Name                 | ID=547369a30a85acee6c3069c28883_0_69a30a85acee6c3069c28883
+  [1] email      | Email                     | ID=547369a30a85acee6c3069c28884_1_69a30a85acee6c3069c28884
+  [2] tel        | 1 (702) 123-4567          | ID=NO ID
+  [3] checkbox   | Enter Alternate number is same as WhatsApp number  | ID=5473sameField_3_sameField
+  [4] date       | Date of Birth             | ID=547369a30a85acee6c3069c2888a_4_69a30a85acee6c3069c2888a
+  [5] text       | Specify your gender here... | ID=5473otherGender_6_otherGender
+  [6] tel        | 1 (702) 123-4567          | ID=NO ID
+  [7] text       | NO PLACEHOLDER            | ID=react-select-2-input
+  [8] hidden     | NO PLACEHOLDER            | ID=NO ID
+  [9] text       | NO PLACEHOLDER            | ID=react-select-3-input
+  [10] hidden     | NO PLACEHOLDER            | ID=NO ID
+  [11] text       | NO PLACEHOLDER            | ID=react-select-4-input
+  [12] radio      | NO PLACEHOLDER            | ID=547369a30a85acee6c3069c2888c0.11047589906670707
+  [13] text       | Write here...             | ID=5473SCHOOL_STUDENT_12_name
+  [14] text       | NO PLACEHOLDER            | ID=react-select-5-input
+  [15] hidden     | NO PLACEHOLDER            | ID=NO ID
+  [16] text       | NO PLACEHOLDER            | ID=react-select-6-input
+  [17] text       | NO PLACEHOLDER            | ID=NO ID
+  [18] text       | NO PLACEHOLDER            | ID=react-select-7-input
+  [19] text       | NO PLACEHOLDER            | ID=NO ID
+  [20] text       | NO PLACEHOLDER            | ID=react-select-8-input
+  [21] text       | NO PLACEHOLDER            | ID=NO ID
+  [22] text       | NO PLACEHOLDER            | ID=react-select-9-input
+  [23] hidden     | NO PLACEHOLDER            | ID=NO ID
+  [24] text       | NO PLACEHOLDER            | ID=react-select-10-input
+  [25] text       | NO PLACEHOLDER            | ID=NO ID
+  [26] text       | NO PLACEHOLDER            | ID=react-select-11-input
+  [27] text       | NO PLACEHOLDER            | ID=NO ID
+  [28] text       | NO PLACEHOLDER            | ID=react-select-12-input
+  [29] text       | NO PLACEHOLDER            | ID=NO ID
+  [30] text       | specify your degree here... | ID=5473COLLEGE_STUDENT_13_otherDegree
+  [31] text       | Write here...             | ID=5473COLLEGE_STUDENT_13_specialization
+  [32] text       | NO PLACEHOLDER            | ID=react-select-13-input
+  [33] text       | NO PLACEHOLDER            | ID=NO ID
+  [34] text       | Designation               | ID=5473PROFESSIONAL_14_designation
+  [35] number     | Year(s) of Experience     | ID=5473PROFESSIONAL_14_yearsOfExperience
+  [36] text       | NO PLACEHOLDER            | ID=react-select-14-input
+  [37] text       | NO PLACEHOLDER            | ID=NO ID
+  [38] date       | Founded In                | ID=5473STARTUP_15_foundedIn
+  [39] number     | Startup Size              | ID=5473STARTUP_15_size
+  [40] text       | NO PLACEHOLDER            | ID=react-select-15-input
+  [41] text       | NO PLACEHOLDER            | ID=NO ID
+  [42] text       | Designation..             | ID=5473STARTUP_15_designation
+  [43] url        | Portfolio Link            | ID=5473FREELANCE_16_portfolio
+  [44] text       | NO PLACEHOLDER            | ID=react-select-16-input
+  [45] text       | NO PLACEHOLDER            | ID=NO ID
+  [46] text       | Linkedin URL              | ID=547369a30a85acee6c3069c2888e_17_69a30a85acee6c3069c2888e
+  [47] file       | Enter College ID Card     | ID=69a3ec31acee6c3069e3f0ea
+  [48] text       | https://g.dev/username    | ID=547369a3ec31acee6c3069e3f11b_19_69a3ec31acee6c3069e3f11b
+  [49] radio      | NO PLACEHOLDER            | ID=5473_69a65a52acee6c30695f4345_20_69a65a52acee6c30695f4345_0
+  [50] radio      | NO PLACEHOLDER            | ID=5473_69a65a52acee6c30695f4345_20_69a65a52acee6c30695f4345_1
+  [51] checkbox   | Enter <div><span>By registering you accept the <strong><em><a target='_blank' href='https://vision.hack2skill.com/event/solution-challenge-2026/tnc' style='color: #0000EE; text-decoration: underline; cursor: pointer;'>Terms & Conditions</a></em></strong></span> </div> | ID=672369df16fd99413d2b46215e70_0_69df16fd99413d2b46215e70
+  [52] checkbox   | Enter <div><span>By registering, you consent to receive updates and communications related to this initiative.</span> </div> | ID=672369df16fd99413d2b46215e71_1_69df16fd99413d2b46215e71
+  [53] text       | NO PLACEHOLDER            | ID=goog-gt-votingInputSrcLang
+  [54] text       | NO PLACEHOLDER            | ID=goog-gt-votingInputTrgLang
+  [55] text       | NO PLACEHOLDER            | ID=goog-gt-votingInputSrcText
+  [56] text       | NO PLACEHOLDER            | ID=goog-gt-votingInputTrgText
+  [57] text       | NO PLACEHOLDER            | ID=goog-gt-votingInputVote
+
+================================================================================
+INPUT FIELDS - CURRENT PAGE
+================================================================================
+
+Total inputs found: 58
+
+[1] TYPE: text       | VISIBLE: True 
+     ID:          547369a30a85acee6c3069c28883_0_69a30a85acee6c3069c28883
+     NAME:        547369a30a85acee6c3069c28883_0_69a30a85acee6c3069c28883
+     PLACEHOLDER: Full Name
+     LABEL:       Full Name
+*
+     CLASS:       [NO CLASS]
+     VALUE:       Test User
+
+[2] TYPE: email      | VISIBLE: True 
+     ID:          547369a30a85acee6c3069c28884_1_69a30a85acee6c3069c28884
+     NAME:        547369a30a85acee6c3069c28884_1_69a30a85acee6c3069c28884
+     PLACEHOLDER: Email
+     LABEL:       Email
+*
+     CLASS:       [NO CLASS]
+     VALUE:       dazzle6896@cock.li
+
+[3] TYPE: tel        | VISIBLE: True 
+     ID:          [NO ID]
+     NAME:        [NO NAME]
+     PLACEHOLDER: 1 (702) 123-4567
+     LABEL:       [NO LABEL]
+     CLASS:       form-control 
+     VALUE:       +91
+
+[4] TYPE: checkbox   | VISIBLE: True 
+     ID:          5473sameField_3_sameField
+     NAME:        5473sameField_3_sameField
+     PLACEHOLDER: Enter Alternate number is same as WhatsApp number 
+     LABEL:       Alternate number is same as WhatsApp number
+     CLASS:       [NO CLASS]
+     VALUE:       [EMPTY]
+
+[5] TYPE: date       | VISIBLE: True 
+     ID:          547369a30a85acee6c3069c2888a_4_69a30a85acee6c3069c2888a
+     NAME:        547369a30a85acee6c3069c2888a_4_69a30a85acee6c3069c2888a
+     PLACEHOLDER: Date of Birth
+     LABEL:       Date of Birth
+*
+     CLASS:       custom-input hasValue
+     VALUE:       [EMPTY]
+
+[6] TYPE: text       | VISIBLE: False
+     ID:          5473otherGender_6_otherGender
+     NAME:        5473otherGender_6_otherGender
+     PLACEHOLDER: Specify your gender here...
+     LABEL:       [EMPTY LABEL]
+     CLASS:       [NO CLASS]
+     VALUE:       [EMPTY]
+
+[7] TYPE: tel        | VISIBLE: True 
+     ID:          [NO ID]
+     NAME:        [NO NAME]
+     PLACEHOLDER: 1 (702) 123-4567
+     LABEL:       [NO LABEL]
+     CLASS:       form-control 
+     VALUE:       +91
+
+[8] TYPE: text       | VISIBLE: True 
+     ID:          react-select-2-input
+     NAME:        [NO NAME]
+     PLACEHOLDER: [NO PLACEHOLDER]
+     LABEL:       Full Name
+*
+     CLASS:       [NO CLASS]
+     VALUE:       India
+
+[9] TYPE: hidden     | VISIBLE: False
+     ID:          [NO ID]
+     NAME:        69a30a85acee6c3069c28887
+     PLACEHOLDER: [NO PLACEHOLDER]
+     LABEL:       [NO LABEL]
+     CLASS:       [NO CLASS]
+     VALUE:       India
+
+[10] TYPE: text       | VISIBLE: True 
+     ID:          react-select-3-input
+     NAME:        [NO NAME]
+     PLACEHOLDER: [NO PLACEHOLDER]
+     LABEL:       Full Name
+*
+     CLASS:       [NO CLASS]
+     VALUE:       [EMPTY]
+
+[11] TYPE: hidden     | VISIBLE: False
+     ID:          [NO ID]
+     NAME:        69a30a85acee6c3069c28888
+     PLACEHOLDER: [NO PLACEHOLDER]
+     LABEL:       [NO LABEL]
+     CLASS:       [NO CLASS]
+     VALUE:       [EMPTY]
+
+[12] TYPE: text       | VISIBLE: False
+     ID:          react-select-4-input
+     NAME:        [NO NAME]
+     PLACEHOLDER: [NO PLACEHOLDER]
+     LABEL:       Full Name
+*
+     CLASS:       [NO CLASS]
+     VALUE:       [EMPTY]
+
+[13] TYPE: radio      | VISIBLE: False
+     ID:          547369a30a85acee6c3069c2888c0.11047589906670707
+     NAME:        547369a30a85acee6c3069c2888c_11_69a30a85acee6c3069c2888c
+     PLACEHOLDER: [NO PLACEHOLDER]
+     LABEL:       Full Name
+*
+     CLASS:       radioInputCard  
+     VALUE:       COLLEGE_STUDENT
+
+[14] TYPE: text       | VISIBLE: False
+     ID:          5473SCHOOL_STUDENT_12_name
+     NAME:        5473SCHOOL_STUDENT_12_name
+     PLACEHOLDER: Write here...
+     LABEL:       Full Name
+*
+     CLASS:       [NO CLASS]
+     VALUE:       [EMPTY]
+
+[15] TYPE: text       | VISIBLE: False
+     ID:          react-select-5-input
+     NAME:        [NO NAME]
+     PLACEHOLDER: [NO PLACEHOLDER]
+     LABEL:       Full Name
+*
+     CLASS:       [NO CLASS]
+     VALUE:       India
+
+[16] TYPE: hidden     | VISIBLE: False
+     ID:          [NO ID]
+     NAME:        country
+     PLACEHOLDER: [NO PLACEHOLDER]
+     LABEL:       [NO LABEL]
+     CLASS:       [NO CLASS]
+     VALUE:       India
+
+[17] TYPE: text       | VISIBLE: False
+     ID:          react-select-6-input
+     NAME:        [NO NAME]
+     PLACEHOLDER: [NO PLACEHOLDER]
+     LABEL:       Full Name
+*
+     CLASS:       [NO CLASS]
+     VALUE:       [EMPTY]
+
+[18] TYPE: text       | VISIBLE: False
+     ID:          [NO ID]
+     NAME:        state
+     PLACEHOLDER: [NO PLACEHOLDER]
+     LABEL:       [NO LABEL]
+     CLASS:       css-1a0ro4n-requiredInput
+     VALUE:       [EMPTY]
+
+[19] TYPE: text       | VISIBLE: False
+     ID:          react-select-7-input
+     NAME:        [NO NAME]
+     PLACEHOLDER: [NO PLACEHOLDER]
+     LABEL:       Full Name
+*
+     CLASS:       [NO CLASS]
+     VALUE:       [EMPTY]
+
+[20] TYPE: text       | VISIBLE: False
+     ID:          [NO ID]
+     NAME:        city
+     PLACEHOLDER: [NO PLACEHOLDER]
+     LABEL:       [NO LABEL]
+     CLASS:       css-1a0ro4n-requiredInput
+     VALUE:       [EMPTY]
+
+[21] TYPE: text       | VISIBLE: True 
+     ID:          react-select-8-input
+     NAME:        [NO NAME]
+     PLACEHOLDER: [NO PLACEHOLDER]
+     LABEL:       Full Name
+*
+     CLASS:       [NO CLASS]
+     VALUE:       [EMPTY]
+
+[22] TYPE: text       | VISIBLE: True 
+     ID:          [NO ID]
+     NAME:        _id
+     PLACEHOLDER: [NO PLACEHOLDER]
+     LABEL:       [NO LABEL]
+     CLASS:       css-1a0ro4n-requiredInput
+     VALUE:       [EMPTY]
+
+[23] TYPE: text       | VISIBLE: True 
+     ID:          react-select-9-input
+     NAME:        [NO NAME]
+     PLACEHOLDER: [NO PLACEHOLDER]
+     LABEL:       Full Name
+*
+     CLASS:       [NO CLASS]
+     VALUE:       India
+
+[24] TYPE: hidden     | VISIBLE: False
+     ID:          [NO ID]
+     NAME:        country
+     PLACEHOLDER: [NO PLACEHOLDER]
+     LABEL:       [NO LABEL]
+     CLASS:       [NO CLASS]
+     VALUE:       India
+
+[25] TYPE: text       | VISIBLE: True 
+     ID:          react-select-10-input
+     NAME:        [NO NAME]
+     PLACEHOLDER: [NO PLACEHOLDER]
+     LABEL:       Full Name
+*
+     CLASS:       [NO CLASS]
+     VALUE:       [EMPTY]
+
+[26] TYPE: text       | VISIBLE: True 
+     ID:          [NO ID]
+     NAME:        state
+     PLACEHOLDER: [NO PLACEHOLDER]
+     LABEL:       [NO LABEL]
+     CLASS:       css-1a0ro4n-requiredInput
+     VALUE:       [EMPTY]
+
+[27] TYPE: text       | VISIBLE: True 
+     ID:          react-select-11-input
+     NAME:        [NO NAME]
+     PLACEHOLDER: [NO PLACEHOLDER]
+     LABEL:       Full Name
+*
+     CLASS:       [NO CLASS]
+     VALUE:       [EMPTY]
+
+[28] TYPE: text       | VISIBLE: True 
+     ID:          [NO ID]
+     NAME:        city
+     PLACEHOLDER: [NO PLACEHOLDER]
+     LABEL:       [NO LABEL]
+     CLASS:       css-1a0ro4n-requiredInput
+     VALUE:       [EMPTY]
+
+[29] TYPE: text       | VISIBLE: True 
+     ID:          react-select-12-input
+     NAME:        [NO NAME]
+     PLACEHOLDER: [NO PLACEHOLDER]
+     LABEL:       Full Name
+*
+     CLASS:       [NO CLASS]
+     VALUE:       [EMPTY]
+
+[30] TYPE: text       | VISIBLE: True 
+     ID:          [NO ID]
+     NAME:        degree
+     PLACEHOLDER: [NO PLACEHOLDER]
+     LABEL:       [NO LABEL]
+     CLASS:       css-1a0ro4n-requiredInput
+     VALUE:       [EMPTY]
+
+[31] TYPE: text       | VISIBLE: False
+     ID:          5473COLLEGE_STUDENT_13_otherDegree
+     NAME:        5473COLLEGE_STUDENT_13_otherDegree
+     PLACEHOLDER: specify your degree here...
+     LABEL:       Full Name
+*
+     CLASS:       [NO CLASS]
+     VALUE:       [EMPTY]
+
+[32] TYPE: text       | VISIBLE: True 
+     ID:          5473COLLEGE_STUDENT_13_specialization
+     NAME:        5473COLLEGE_STUDENT_13_specialization
+     PLACEHOLDER: Write here...
+     LABEL:       Full Name
+*
+     CLASS:       [NO CLASS]
+     VALUE:       [EMPTY]
+
+[33] TYPE: text       | VISIBLE: False
+     ID:          react-select-13-input
+     NAME:        [NO NAME]
+     PLACEHOLDER: [NO PLACEHOLDER]
+     LABEL:       Full Name
+*
+     CLASS:       [NO CLASS]
+     VALUE:       [EMPTY]
+
+[34] TYPE: text       | VISIBLE: False
+     ID:          [NO ID]
+     NAME:        organization
+     PLACEHOLDER: [NO PLACEHOLDER]
+     LABEL:       [NO LABEL]
+     CLASS:       css-1a0ro4n-requiredInput
+     VALUE:       [EMPTY]
+
+[35] TYPE: text       | VISIBLE: False
+     ID:          5473PROFESSIONAL_14_designation
+     NAME:        5473PROFESSIONAL_14_designation
+     PLACEHOLDER: Designation
+     LABEL:       Full Name
+*
+     CLASS:       [NO CLASS]
+     VALUE:       [EMPTY]
+
+[36] TYPE: number     | VISIBLE: False
+     ID:          5473PROFESSIONAL_14_yearsOfExperience
+     NAME:        5473PROFESSIONAL_14_yearsOfExperience
+     PLACEHOLDER: Year(s) of Experience
+     LABEL:       Full Name
+*
+     CLASS:       [NO CLASS]
+     VALUE:       [EMPTY]
+
+[37] TYPE: text       | VISIBLE: False
+     ID:          react-select-14-input
+     NAME:        [NO NAME]
+     PLACEHOLDER: [NO PLACEHOLDER]
+     LABEL:       Full Name
+*
+     CLASS:       [NO CLASS]
+     VALUE:       [EMPTY]
+
+[38] TYPE: text       | VISIBLE: False
+     ID:          [NO ID]
+     NAME:        organization
+     PLACEHOLDER: [NO PLACEHOLDER]
+     LABEL:       [NO LABEL]
+     CLASS:       css-1a0ro4n-requiredInput
+     VALUE:       [EMPTY]
+
+[39] TYPE: date       | VISIBLE: False
+     ID:          5473STARTUP_15_foundedIn
+     NAME:        5473STARTUP_15_foundedIn
+     PLACEHOLDER: Founded In
+     LABEL:       Full Name
+*
+     CLASS:       custom-input hasValue
+     VALUE:       [EMPTY]
+
+[40] TYPE: number     | VISIBLE: False
+     ID:          5473STARTUP_15_size
+     NAME:        5473STARTUP_15_size
+     PLACEHOLDER: Startup Size
+     LABEL:       Full Name
+*
+     CLASS:       [NO CLASS]
+     VALUE:       [EMPTY]
+
+[41] TYPE: text       | VISIBLE: False
+     ID:          react-select-15-input
+     NAME:        [NO NAME]
+     PLACEHOLDER: [NO PLACEHOLDER]
+     LABEL:       Full Name
+*
+     CLASS:       [NO CLASS]
+     VALUE:       [EMPTY]
+
+[42] TYPE: text       | VISIBLE: False
+     ID:          [NO ID]
+     NAME:        industry
+     PLACEHOLDER: [NO PLACEHOLDER]
+     LABEL:       [NO LABEL]
+     CLASS:       css-1a0ro4n-requiredInput
+     VALUE:       [EMPTY]
+
+[43] TYPE: text       | VISIBLE: False
+     ID:          5473STARTUP_15_designation
+     NAME:        5473STARTUP_15_designation
+     PLACEHOLDER: Designation..
+     LABEL:       Full Name
+*
+     CLASS:       [NO CLASS]
+     VALUE:       [EMPTY]
+
+[44] TYPE: url        | VISIBLE: False
+     ID:          5473FREELANCE_16_portfolio
+     NAME:        5473FREELANCE_16_portfolio
+     PLACEHOLDER: Portfolio Link
+     LABEL:       Full Name
+*
+     CLASS:       [NO CLASS]
+     VALUE:       [EMPTY]
+
+[45] TYPE: text       | VISIBLE: False
+     ID:          react-select-16-input
+     NAME:        [NO NAME]
+     PLACEHOLDER: [NO PLACEHOLDER]
+     LABEL:       Full Name
+*
+     CLASS:       [NO CLASS]
+     VALUE:       [EMPTY]
+
+[46] TYPE: text       | VISIBLE: False
+     ID:          [NO ID]
+     NAME:        domain
+     PLACEHOLDER: [NO PLACEHOLDER]
+     LABEL:       [NO LABEL]
+     CLASS:       css-1a0ro4n-requiredInput
+     VALUE:       [EMPTY]
+
+[47] TYPE: text       | VISIBLE: True 
+     ID:          547369a30a85acee6c3069c2888e_17_69a30a85acee6c3069c2888e
+     NAME:        547369a30a85acee6c3069c2888e_17_69a30a85acee6c3069c2888e
+     PLACEHOLDER: Linkedin URL
+     LABEL:       Linkedin Profile
+*
+     CLASS:       [NO CLASS]
+     VALUE:       [EMPTY]
+
+[48] TYPE: file       | VISIBLE: True 
+     ID:          69a3ec31acee6c3069e3f0ea
+     NAME:        69a3ec31acee6c3069e3f0ea
+     PLACEHOLDER: Enter College ID Card
+     LABEL:       Full Name
+*
+     CLASS:       [NO CLASS]
+     VALUE:       [EMPTY]
+
+[49] TYPE: text       | VISIBLE: True 
+     ID:          547369a3ec31acee6c3069e3f11b_19_69a3ec31acee6c3069e3f11b
+     NAME:        547369a3ec31acee6c3069e3f11b_19_69a3ec31acee6c3069e3f11b
+     PLACEHOLDER: https://g.dev/username
+     LABEL:       GDP Public Profile Link
+*
+     CLASS:       [NO CLASS]
+     VALUE:       [EMPTY]
+
+[50] TYPE: radio      | VISIBLE: True 
+     ID:          5473_69a65a52acee6c30695f4345_20_69a65a52acee6c30695f4345_0
+     NAME:        5473_69a65a52acee6c30695f4345_20_69a65a52acee6c30695f4345
+     PLACEHOLDER: [NO PLACEHOLDER]
+     LABEL:       Full Name
+*
+     CLASS:       [NO CLASS]
+     VALUE:       No
+
+[51] TYPE: radio      | VISIBLE: True 
+     ID:          5473_69a65a52acee6c30695f4345_20_69a65a52acee6c30695f4345_1
+     NAME:        5473_69a65a52acee6c30695f4345_20_69a65a52acee6c30695f4345
+     PLACEHOLDER: [NO PLACEHOLDER]
+     LABEL:       Full Name
+*
+     CLASS:       [NO CLASS]
+     VALUE:       OTHER_FIELD_CONSTANT_VALUE
+
+[52] TYPE: checkbox   | VISIBLE: True 
+     ID:          672369df16fd99413d2b46215e70_0_69df16fd99413d2b46215e70
+     NAME:        672369df16fd99413d2b46215e70_0_69df16fd99413d2b46215e70
+     PLACEHOLDER: Enter <div><span>By registering you accept the <strong><em><a target='_blank' href='https://vision.hack2skill.com/event/solution-challenge-2026/tnc' style='color: #0000EE; text-decoration: underline; cursor: pointer;'>Terms & Conditions</a></em></strong></span> </div>
+     LABEL:       By registering you accept the Terms & Conditions
+*
+     CLASS:       [NO CLASS]
+     VALUE:       [EMPTY]
+
+[53] TYPE: checkbox   | VISIBLE: True 
+     ID:          672369df16fd99413d2b46215e71_1_69df16fd99413d2b46215e71
+     NAME:        672369df16fd99413d2b46215e71_1_69df16fd99413d2b46215e71
+     PLACEHOLDER: Enter <div><span>By registering, you consent to receive updates and communications related to this initiative.</span> </div>
+     LABEL:       By registering, you consent to receive updates and communications related to this initiative.
+*
+     CLASS:       [NO CLASS]
+     VALUE:       [EMPTY]
+
+[54] TYPE: text       | VISIBLE: False
+     ID:          goog-gt-votingInputSrcLang
+     NAME:        sl
+     PLACEHOLDER: [NO PLACEHOLDER]
+     LABEL:       [NO LABEL]
+     CLASS:       [NO CLASS]
+     VALUE:       [EMPTY]
+
+[55] TYPE: text       | VISIBLE: False
+     ID:          goog-gt-votingInputTrgLang
+     NAME:        tl
+     PLACEHOLDER: [NO PLACEHOLDER]
+     LABEL:       [NO LABEL]
+     CLASS:       [NO CLASS]
+     VALUE:       [EMPTY]
+
+[56] TYPE: text       | VISIBLE: False
+     ID:          goog-gt-votingInputSrcText
+     NAME:        query
+     PLACEHOLDER: [NO PLACEHOLDER]
+     LABEL:       [NO LABEL]
+     CLASS:       [NO CLASS]
+     VALUE:       [EMPTY]
+
+[57] TYPE: text       | VISIBLE: False
+     ID:          goog-gt-votingInputTrgText
+     NAME:        gtrans
+     PLACEHOLDER: [NO PLACEHOLDER]
+     LABEL:       [NO LABEL]
+     CLASS:       [NO CLASS]
+     VALUE:       [EMPTY]
+
+[58] TYPE: text       | VISIBLE: False
+     ID:          goog-gt-votingInputVote
+     NAME:        vote
+     PLACEHOLDER: [NO PLACEHOLDER]
+     LABEL:       [NO LABEL]
+     CLASS:       [NO CLASS]
+     VALUE:       [EMPTY]
+
+
+================================================================================
+SELECT DROPDOWNS - CURRENT PAGE
+================================================================================
+
+Total selects found: 3
+
+[1] ID: 69a30a85acee6c3069c2888b
+     NAME: 69a30a85acee6c3069c2888b
+     LABEL: [NO LABEL]
+     CLASS: [NO CLASS]
+     OPTIONS (6 total): --Select an Option--, Male, Female, Transgender, Other
+
+[2] ID: class
+     NAME: class
+     LABEL: [NO LABEL]
+     CLASS: [NO CLASS]
+     OPTIONS (6 total): , , , , 
+
+[3] ID: passoutYear
+     NAME: passoutYear
+     LABEL: [NO LABEL]
+     CLASS: [NO CLASS]
+     OPTIONS (13 total): --Select an Option--, 2023, 2024, 2025, 2026
+
+
+================================================================================
+BUTTONS - CURRENT PAGE
+================================================================================
+
+Total buttons found: 7
+
+[1] TYPE: submit   | TEXT: '[NO TEXT]'
+     ID: [NO ID]
+     CLASS: group relative inline-flex items-center justify-center rounded-md p-2 text-h2sSlate-700 
+     DISABLED: False
+
+[2] TYPE: button   | TEXT: '1'
+     ID: headlessui-menu-button-:r2:
+     CLASS: relative p-2  text-h2sSlate-500 hover:text-h2sSlate-700  focus:ring-h2sSlate-100 rounded-full transition-colors duration-200
+     DISABLED: False
+
+[3] TYPE: button   | TEXT: 'Open user menu'
+     ID: headlessui-menu-button-:r3:
+     CLASS: relative max-lg:hidden flex rounded-full bg-white text-sm focus:outline-none ring-2 ring-h2sSlate-100
+     DISABLED: False
+
+[4] TYPE: submit   | TEXT: '[NO TEXT]'
+     ID: [NO ID]
+     CLASS: relative flex rounded-full bg-white text-sm focus:outline-none ring-2 ring-h2sSlate-100
+     DISABLED: False
+
+[5] TYPE: submit   | TEXT: 'Register Now'
+     ID: [NO ID]
+     CLASS: buttonv1Comp undefined
+     DISABLED: False
+
+[6] TYPE: button   | TEXT: '[NO TEXT]'
+     ID: goog-gt-thumbUpButton
+     CLASS: VIpgJd-yAWNEb-hvhgNd-bgm6sf
+     DISABLED: False
+
+[7] TYPE: button   | TEXT: '[NO TEXT]'
+     ID: goog-gt-thumbDownButton
+     CLASS: VIpgJd-yAWNEb-hvhgNd-bgm6sf
+     DISABLED: False
+
+
+================================================================================
+LABELS - CURRENT PAGE
+================================================================================
+
+Total labels found: 41
+
+[1] TEXT: Full Name
+*
+     FOR: 547369a30a85acee6c3069c28883_0_69a30a85acee6c3069c28883
+     CLASS:     font-bold text-slate-700  text-xs text-start flex w-full  !items-start gap-1 
+
+[2] TEXT: Email
+*
+     FOR: 547369a30a85acee6c3069c28884_1_69a30a85acee6c3069c28884
+     CLASS:     font-bold text-slate-700  text-xs text-start flex w-full  !items-start gap-1 
+
+[3] TEXT: WhatsApp Number
+*
+     FOR: 547369a30a85acee6c3069c28885_2_69a30a85acee6c3069c28885
+     CLASS:     font-bold text-slate-700  text-xs text-start flex w-full  !items-start gap-1 
+
+[4] TEXT: Alternate number is same as WhatsApp number
+     FOR: 5473sameField_3_sameField
+     CLASS:   !text-xs  font-bold text-slate-700  text-xs text-start flex w-full  !items-start gap-1 
+
+[5] TEXT: Date of Birth
+*
+     FOR: 547369a30a85acee6c3069c2888a_4_69a30a85acee6c3069c2888a
+     CLASS:     font-bold text-slate-700  text-xs text-start flex w-full  !items-start gap-1 
+
+[6] TEXT: Gender
+*
+     FOR: 547369a30a85acee6c3069c2888b_5_69a30a85acee6c3069c2888b
+     CLASS:     font-bold text-slate-700  text-xs text-start flex w-full  !items-start gap-1 
+
+[7] TEXT: [EMPTY]
+     FOR: 5473otherGender_6_otherGender
+     CLASS:     font-bold text-slate-700  text-xs text-start flex w-full  !items-start gap-1 
+
+[8] TEXT: Alternate Number
+*
+     FOR: 547369a30a85acee6c3069c28886_7_69a30a85acee6c3069c28886
+     CLASS:     font-bold text-slate-700  text-xs text-start flex w-full  !items-start gap-1 
+
+[9] TEXT: Country
+*
+     FOR: 547369a30a85acee6c3069c28887_8_69a30a85acee6c3069c28887
+     CLASS:     font-bold text-slate-700  text-xs text-start flex w-full  !items-start gap-1 
+
+[10] TEXT: State/Province
+*
+     FOR: 547369a30a85acee6c3069c28888_9_69a30a85acee6c3069c28888
+     CLASS:     font-bold text-slate-700  text-xs text-start flex w-full  !items-start gap-1 
+
+[11] TEXT: City
+*
+     FOR: 547369a30a85acee6c3069c28889_10_69a30a85acee6c3069c28889
+     CLASS:     font-bold text-slate-700  text-xs text-start flex w-full  !items-start gap-1 
+
+[12] TEXT: Occupation
+*
+     FOR: 547369a30a85acee6c3069c2888c_11_69a30a85acee6c3069c2888c
+     CLASS:  relativeImp w-fit    font-bold text-slate-700  text-xs text-start flex w-full  !items-start gap-1 
+
+[13] TEXT: [EMPTY]
+     FOR: 5473SCHOOL_STUDENT_12_SCHOOL_STUDENT
+     CLASS:     font-bold text-slate-700  text-xs text-start flex w-full  !items-start gap-1 
+
+[14] TEXT: [EMPTY]
+     FOR: 5473SCHOOL_STUDENT_12_SCHOOL_STUDENT
+     CLASS:     font-bold text-slate-700  text-xs text-start flex w-full  !items-start gap-1 
+
+[15] TEXT: [EMPTY]
+     FOR: 5473SCHOOL_STUDENT_12_SCHOOL_STUDENT
+     CLASS:     font-bold text-slate-700  text-xs text-start flex w-full  !items-start gap-1 
+
+[16] TEXT: [EMPTY]
+     FOR: 5473SCHOOL_STUDENT_12_SCHOOL_STUDENT
+     CLASS:     font-bold text-slate-700  text-xs text-start flex w-full  !items-start gap-1 
+
+[17] TEXT: [EMPTY]
+     FOR: 5473SCHOOL_STUDENT_12_SCHOOL_STUDENT
+     CLASS:     font-bold text-slate-700  text-xs text-start flex w-full  !items-start gap-1 
+
+[18] TEXT: College Name
+*
+     FOR: 5473COLLEGE_STUDENT_13_COLLEGE_STUDENT
+     CLASS:     font-bold text-slate-700  text-xs text-start flex w-full  !items-start gap-1 
+
+[19] TEXT: College Country
+*
+     FOR: 5473COLLEGE_STUDENT_13_COLLEGE_STUDENT
+     CLASS:     font-bold text-slate-700  text-xs text-start flex w-full  !items-start gap-1 
+
+[20] TEXT: College State
+*
+     FOR: 5473COLLEGE_STUDENT_13_COLLEGE_STUDENT
+     CLASS:     font-bold text-slate-700  text-xs text-start flex w-full  !items-start gap-1 
+
+[21] TEXT: College City
+*
+     FOR: 5473COLLEGE_STUDENT_13_COLLEGE_STUDENT
+     CLASS:     font-bold text-slate-700  text-xs text-start flex w-full  !items-start gap-1 
+
+[22] TEXT: Degree
+*
+     FOR: 5473COLLEGE_STUDENT_13_COLLEGE_STUDENT
+     CLASS:     font-bold text-slate-700  text-xs text-start flex w-full  !items-start gap-1 
+
+[23] TEXT: [EMPTY]
+     FOR: 5473COLLEGE_STUDENT_13_COLLEGE_STUDENT
+     CLASS:     font-bold text-slate-700  text-xs text-start flex w-full  !items-start gap-1 
+
+[24] TEXT: Stream/Specialization
+*
+     FOR: 5473COLLEGE_STUDENT_13_COLLEGE_STUDENT
+     CLASS:     font-bold text-slate-700  text-xs text-start flex w-full  !items-start gap-1 
+
+[25] TEXT: Passout Year
+*
+     FOR: 5473COLLEGE_STUDENT_13_COLLEGE_STUDENT
+     CLASS:     font-bold text-slate-700  text-xs text-start flex w-full  !items-start gap-1 
+
+[26] TEXT: [EMPTY]
+     FOR: 5473PROFESSIONAL_14_PROFESSIONAL
+     CLASS:     font-bold text-slate-700  text-xs text-start flex w-full  !items-start gap-1 
+
+[27] TEXT: [EMPTY]
+     FOR: 5473PROFESSIONAL_14_PROFESSIONAL
+     CLASS:     font-bold text-slate-700  text-xs text-start flex w-full  !items-start gap-1 
+
+[28] TEXT: [EMPTY]
+     FOR: 5473PROFESSIONAL_14_PROFESSIONAL
+     CLASS:     font-bold text-slate-700  text-xs text-start flex w-full  !items-start gap-1 
+
+[29] TEXT: [EMPTY]
+     FOR: 5473STARTUP_15_STARTUP
+     CLASS:     font-bold text-slate-700  text-xs text-start flex w-full  !items-start gap-1 
+
+[30] TEXT: [EMPTY]
+     FOR: 5473STARTUP_15_STARTUP
+     CLASS:     font-bold text-slate-700  text-xs text-start flex w-full  !items-start gap-1 
+
+[31] TEXT: [EMPTY]
+     FOR: 5473STARTUP_15_STARTUP
+     CLASS:     font-bold text-slate-700  text-xs text-start flex w-full  !items-start gap-1 
+
+[32] TEXT: [EMPTY]
+     FOR: 5473STARTUP_15_STARTUP
+     CLASS:     font-bold text-slate-700  text-xs text-start flex w-full  !items-start gap-1 
+
+[33] TEXT: [EMPTY]
+     FOR: 5473STARTUP_15_STARTUP
+     CLASS:     font-bold text-slate-700  text-xs text-start flex w-full  !items-start gap-1 
+
+[34] TEXT: [EMPTY]
+     FOR: 5473FREELANCE_16_FREELANCE
+     CLASS:     font-bold text-slate-700  text-xs text-start flex w-full  !items-start gap-1 
+
+[35] TEXT: [EMPTY]
+     FOR: 5473FREELANCE_16_FREELANCE
+     CLASS:     font-bold text-slate-700  text-xs text-start flex w-full  !items-start gap-1 
+
+[36] TEXT: Linkedin Profile
+*
+     FOR: 547369a30a85acee6c3069c2888e_17_69a30a85acee6c3069c2888e
+     CLASS:     font-bold text-slate-700  text-xs text-start flex w-full  !items-start gap-1 
+
+[37] TEXT: College ID Card
+*
+     FOR: 547369a3ec31acee6c3069e3f0ea_18_69a3ec31acee6c3069e3f0ea
+     CLASS:  relativeImp w-fit    font-bold text-slate-700  text-xs text-start flex w-full  !items-start gap-1 
+
+[38] TEXT: GDP Public Profile Link
+*
+     FOR: 547369a3ec31acee6c3069e3f11b_19_69a3ec31acee6c3069e3f11b
+     CLASS:     font-bold text-slate-700  text-xs text-start flex w-full  !items-start gap-1 
+
+[39] TEXT: Were you referred to this hackathon by a GDG on Campus Organizer? (Yes/No)
+*
+     FOR: 547369a65a52acee6c30695f4345_20_69a65a52acee6c30695f4345
+     CLASS:  relativeImp w-fit    font-bold text-slate-700  text-xs text-start flex w-full  !items-start gap-1 
+
+[40] TEXT: By registering you accept the Terms & Conditions
+*
+     FOR: 672369df16fd99413d2b46215e70_0_69df16fd99413d2b46215e70
+     CLASS:   !text-xs  font-bold text-slate-700  text-xs text-start flex w-full  !items-start gap-1 
+
+[41] TEXT: By registering, you consent to receive updates and communications related to this initiative.
+*
+     FOR: 672369df16fd99413d2b46215e71_1_69df16fd99413d2b46215e71
+     CLASS:   !text-xs  font-bold text-slate-700  text-xs text-start flex w-full  !items-start gap-1 

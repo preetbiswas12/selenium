@@ -2,7 +2,7 @@
 """
 Hack2Skill Semi-Automated Registration with Tor Browser
 - 90% Automated | 10% Manual (OTP only)
-- Uses Tor Browser (built-in Tor network integration)
+- Uses Tor Browser ONLY (built-in Tor network integration)
 - Comprehensive error handling
 - Auto-fills & auto-submits registration form
 - Fully encrypted and routed through Tor network
@@ -113,11 +113,11 @@ def load_accounts():
 
 
 def init_tor_driver():
-    """Initialize Tor Browser WebDriver with integrated Tor network"""
+    """Initialize Tor Browser ONLY (no fallback to Firefox)"""
     try:
-        print_step("[WAIT] Initializing browser with Tor network...", "cyan")
+        print_step("[WAIT] Initializing Tor Browser...", "cyan")
         
-        # Common Tor Browser paths on Windows
+        # Tor Browser paths on Windows
         tor_browser_paths = [
             r"C:\Users\preet\OneDrive\Documents\Tor Browser\Browser\firefox.exe",
             r"C:\Program Files\Tor Browser\Browser\firefox.exe",
@@ -135,7 +135,7 @@ def init_tor_driver():
                 break
         
         if not tor_browser_binary:
-            print_step("[ERROR] Tor Browser not found in standard locations", "red")
+            print_step("[ERROR] Tor Browser not found - REQUIRED for this script", "red")
             print_step("[INFO] Expected locations:", "yellow")
             for path in tor_browser_paths:
                 print_step(f"   - {path}", "yellow")
@@ -144,38 +144,35 @@ def init_tor_driver():
             return None
         
         options = webdriver.FirefoxOptions()
-        
-        # Use Tor Browser (built-in Tor network)
         options.binary_location = tor_browser_binary
-        
         options.add_argument("--private")
-        options.add_argument("--no-remote")  # Prevent multiple instances conflict
+        options.add_argument("--no-remote")
         
-        # Set Tor Browser privacy preferences
+        # Tor Browser privacy settings
+        options.set_preference("browser.privatebrowsing.autostart", True)
+        options.set_preference("extensions.torbutton.use_nontor_proxy", False)
         options.set_preference("network.trr.mode", 5)  # Disable DoH
         options.set_preference("media.peerconnection.enabled", False)  # Disable WebRTC
         options.set_preference("dom.disable_beforeunload", True)
-        options.set_preference("browser.privatebrowsing.autostart", True)
-        options.set_preference("extensions.torbutton.use_nontor_proxy", False)
         
         driver = webdriver.Firefox(options=options)
-        print_step("[OK] Tor Browser initialized with integrated Tor network", "green")
-        logger.info("Tor Browser WebDriver initialized")
+        print_step("[OK] Tor Browser initialized", "green")
+        logger.info("Tor Browser initialized")
         
-        # Wait for Tor to connect to network
+        # Wait for Tor to connect
         print_step(f"\n{'='*70}", "cyan")
         print_step("[WAIT] Connecting to Tor network...", "cyan")
         print_step(f"{'='*70}", "cyan")
         print_step("[INFO] Using Tor network (fully encrypted & anonymous)", "blue")
         
         for remaining in range(TOR_CONNECT_WAIT, 0, -1):
-            sys.stdout.write(f"\r⏳ {remaining:2d} seconds... (Tor connecting to network)")
+            sys.stdout.write(f"\r[WAIT] {remaining:2d}s remaining (Tor connecting)...")
             sys.stdout.flush()
             time.sleep(1)
         
         print("\n")
-        print_step("[OK] Tor Browser connected to Tor network", "green")
-        logger.info("Tor Browser connected to Tor network")
+        print_step("[OK] Connected to Tor network - Ready for automation", "green")
+        logger.info("Tor network connected")
         
         return driver
         
@@ -183,20 +180,20 @@ def init_tor_driver():
         print_step(f"[ERROR] Tor Browser driver creation failed: {str(e)[:80]}", "red")
         logger.error(f"SessionNotCreatedException: {str(e)}")
         print_step("\n[HELP] Troubleshooting:", "yellow")
-        print_step("   1. Make sure Tor Browser is installed", "yellow")
+        print_step("   1. Ensure Tor Browser is installed", "yellow")
         print_step("   2. Close any existing Tor Browser windows", "yellow")
         print_step("   3. Check firewall settings", "yellow")
         return None
     except WebDriverException as e:
-        print_step(f"[ERROR] WebDriver error initializing Tor Browser: {str(e)[:80]}", "red")
+        print_step(f"[ERROR] WebDriver error: {str(e)[:80]}", "red")
         logger.error(f"WebDriverException: {str(e)}")
         return None
     except Exception as e:
-        print_step(f"[ERROR] Unexpected error initializing Tor Browser: {str(e)}", "red")
-        logger.error(f"Unexpected error initializing Tor Browser: {str(e)}")
+        print_step(f"[ERROR] Unexpected error: {str(e)}", "red")
+        logger.error(f"Unexpected error: {str(e)}")
         print_step("\n[HELP] Troubleshooting:", "yellow")
-        print_step("   1. Verify Tor Browser is installed correctly", "yellow")
-        print_step("   2. Ensure Python and Selenium are up to date", "yellow")
+        print_step("   1. Ensure Python and Selenium are up to date", "yellow")
+        print_step("   2. Check system resources", "yellow")
         return None
 
 
@@ -548,49 +545,30 @@ def auto_fill_registration_form(driver: webdriver.Firefox, account: dict):
             logger.warning(f"Error checking Terms: {str(e)[:80]}")
         
         print_step("\n" + "="*70, "green")
-        print_step("✅ FORM AUTO-FILLED SUCCESSFULLY!", "green")
+        print_step("[OK] FORM AUTO-FILLED SUCCESSFULLY!", "green")
         print_step("="*70, "green")
         
-        # Auto-submit form
-        print_step("\n→ Submitting form automatically...", "blue")
+        # Wait for user to manually review and submit form
+        print_step("\n" + "="*70, "yellow")
+        print_step("[PAUSE] REGISTRATION FORM READY FOR MANUAL SUBMISSION", "yellow")
+        print_step("="*70, "yellow")
+        print_step("[INFO] Form auto-filled with all static values", "green")
+        print_step("[INFO] Please review the form on screen", "blue")
+        print_step("[WAIT] When ready, click the Submit/Register button yourself", "blue")
+        print_step("[HELP] Then return to terminal and press ENTER to continue", "yellow")
+        print_step("-" * 70, "yellow")
         
+        # Wait for user input
         try:
-            # Try multiple submit button strategies
-            submit_button = None
-            strategies = [
-                (By.XPATH, "//button[contains(text(), 'Submit') or contains(text(), 'Register')]"),
-                (By.XPATH, "//button[@type='submit']"),
-                (By.XPATH, "//input[@type='submit']"),
-                (By.XPATH, "//button[contains(text(), 'Next')]"),
-            ]
-            
-            for locator in strategies:
-                try:
-                    elements = driver.find_elements(*locator)
-                    if elements:
-                        submit_button = elements[0]
-                        break
-                except NoSuchElementException:
-                    continue
-            
-            if submit_button:
-                driver.execute_script("arguments[0].scrollIntoView(true);", submit_button)
-                time.sleep(0.5)
-                submit_button.click()
-                print_step("✓ Submit button clicked", "green")
-                logger.info("Form submitted successfully")
-                time.sleep(3)
-                return True
-            else:
-                print_step("⚠ Submit button not found - form may have auto-submitted", "yellow")
-                logger.warning("Submit button not found")
-                time.sleep(2)
-                return True  # Assume form might auto-submit
-                
+            input("\n[PAUSE] Press ENTER after submitting the form... ")
+            print_step("[OK] Continuing to next account", "green")
+            logger.info("User confirmed form submission")
+            time.sleep(1)
+            return True
         except Exception as e:
-            print_step(f"⚠ Error clicking submit: {str(e)[:50]}", "yellow")
-            logger.warning(f"Error submitting form: {str(e)[:80]}")
-            return False
+            print_step(f"[ERROR] Input error: {str(e)[:50]}", "red")
+            logger.error(f"Input error: {str(e)}")
+            return True  # Continue anyway
         
     except Exception as e:
         print_step(f"❌ Critical error auto-filling form: {str(e)}", "red")

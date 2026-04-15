@@ -36,11 +36,11 @@ from selenium.common.exceptions import (
 
 SIGNUP_PAGE_URL = "https://vision.hack2skill.com/signup?utm_source=hack2skill&utm_medium=homepage&utm_campaign=&utm_term=&utm_content="
 REGISTRATION_URL = "https://vision.hack2skill.com/event/solution-challenge-2026/registration?utm_source=hack2skill&utm_medium=homepage&utm_campaign=&utm_term=&utm_content="
-CSV_FILE = r"C:\Users\preet\Downloads\selenium\accounts_created.csv"
+CSV_FILE = r"C:\Users\preet\Downloads\selenium\accounts.csv"
 LOG_FILE = r"C:\Users\preet\Downloads\selenium\registration_log.csv"
 
-TIMEOUT_PAGE_LOAD = 25
-TIMEOUT_ELEMENT = 15
+TIMEOUT_PAGE_LOAD = 30
+TIMEOUT_ELEMENT = 20
 
 
 # ═══════════════════════════════════════════════════════════════
@@ -86,6 +86,22 @@ def log_progress(email: str, status: str, message: str):
             status,
             message
         ])
+
+
+def load_accounts_from_csv(csv_file: str) -> List[Dict]:
+    """Load all accounts from CSV file"""
+    accounts = []
+    try:
+        with open(csv_file, 'r') as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                if row and row.get('email'):  # Only include rows with email
+                    accounts.append(row)
+        print_success(f"Loaded {len(accounts)} accounts from CSV")
+        return accounts
+    except Exception as e:
+        print_error(f"Failed to load CSV: {str(e)}")
+        return []
 
 
 def init_firefox_driver():
@@ -658,38 +674,75 @@ def fill_registration_form(driver: webdriver.Firefox) -> bool:
 
 
 def main():
-    """Main workflow"""
+    """Main workflow - processes all accounts from CSV"""
     print("\n" + "="*70)
-    print("HACK2SKILL: Manual Login + Auto Form Filler")
+    print("HACK2SKILL: Batch Manual Login + Auto Form Filler")
     print("="*70)
     
-    # Initialize Firefox
-    driver = init_firefox_driver()
-    if not driver:
+    # Load all accounts from CSV
+    accounts = load_accounts_from_csv(CSV_FILE)
+    if not accounts:
+        print_error("No accounts to process")
         return
     
-    try:
-        # Step 1: Wait for manual login
-        if not wait_for_manual_login(driver):
-            return
-        
-        time.sleep(2)
-        
-        # Step 2: Auto-fill registration form
-        fill_registration_form(driver)
-        
+    print(f"\nTotal accounts to process: {len(accounts)}\n")
+    
+    # Process each account
+    for idx, account in enumerate(accounts, 1):
         print("\n" + "="*70)
-        print("✓ Workflow Complete!")
-        print("="*70)
+        print(f"[{idx}/{len(accounts)}] Processing: {account.get('email')}")
+        print("="*70 + "\n")
         
-    except KeyboardInterrupt:
-        print("\n\n✗ Workflow cancelled by user")
-    except Exception as e:
-        print(f"\n\n✗ Workflow error: {str(e)}")
-    finally:
-        print("\nClosing Firefox in 10 seconds...")
-        time.sleep(10)
-        driver.quit()
+        driver = None
+        try:
+            # Initialize Firefox for this account
+            driver = init_firefox_driver()
+            if not driver:
+                log_progress(account['email'], "ERROR", "Failed to initialize Firefox")
+                continue
+            
+            # Step 1: Wait for manual login + OTP
+            if not wait_for_manual_login(driver):
+                log_progress(account['email'], "CANCELLED", "User cancelled login step")
+                if driver:
+                    driver.quit()
+                continue
+            
+            time.sleep(2)
+            
+            # Step 2: Auto-fill registration form
+            success = fill_registration_form(driver)
+            if success:
+                log_progress(account['email'], "SUCCESS", "Account registered successfully")
+            else:
+                log_progress(account['email'], "PARTIAL", "Form filling had issues, check manually")
+            
+            # Wait for user verification before closing
+            print("\n" + "="*70)
+            print(f"✓ Account {idx}/{len(accounts)} Processing Complete")
+            print("="*70)
+            print("\nVerify the registration result in Firefox browser window.")
+            print("Check if 'Success' message appears.")
+            input("\nPress Enter when ready to close Firefox and proceed to next account... ")
+            
+        except KeyboardInterrupt:
+            print("\n\n✗ Batch processing cancelled by user")
+            log_progress(account['email'], "CANCELLED", "User interrupted workflow")
+            break
+        except Exception as e:
+            print(f"\n✗ Error processing account: {str(e)}")
+            log_progress(account['email'], "ERROR", str(e)[:100])
+        finally:
+            if driver:
+                print("Closing Firefox...")
+                driver.quit()
+    
+    # Final summary
+    print("\n" + "="*70)
+    print("✓ ALL ACCOUNTS PROCESSED")
+    print("="*70)
+    print(f"\nResults saved to: {LOG_FILE}")
+    print(f"Check the CSV file to see which accounts succeeded.\n")
 
 
 if __name__ == "__main__":

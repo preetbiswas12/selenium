@@ -116,7 +116,7 @@ def main():
         logger.info("  4. Each account takes ~2-3 minutes (Tor + CAPTCHA)")
         total_time = num_accounts * 2.5
     else:
-        logger.info(f"  1. Firefox Incognito will open/close {num_accounts} times")
+        logger.info(f" 1. Firefox Incognito will open/close {num_accounts} times")
         logger.info("  2. For each account, you'll have 20 seconds to solve CAPTCHA")
         logger.info("  3. Each account takes ~1-2 minutes")
         total_time = num_accounts * 1.5

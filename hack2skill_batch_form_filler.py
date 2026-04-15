@@ -18,7 +18,7 @@ from selenium.common.exceptions import TimeoutException, NoSuchElementException
 # Configuration
 SIGNUP_PAGE_URL = "https://vision.hack2skill.com/signup?utm_source=hack2skill&utm_medium=homepage&utm_campaign=&utm_term=&utm_content="
 REGISTRATION_URL = "https://vision.hack2skill.com/event/solution-challenge-2026/registration"
-CSV_FILE = r"C:\Users\preet\Downloads\selenium\accounts_created.csv"
+CSV_FILE = r"C:\Users\preet\Downloads\selenium\accounts.csv"
 LOG_FILE = r"C:\Users\preet\Downloads\selenium\registration_log.csv"
 
 # Sample data generators

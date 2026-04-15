@@ -109,3 +109,54 @@ receiveMessage@chrome://remote/content/marionette/actors/MarionetteCommandsChild
 2026-04-14 09:39:11,papa9373@cock.li,SUCCESS,ACCOUNT_DONE,Account registered
 2026-04-14 10:29:09,uniform4162@cock.li,SUCCESS,ACCOUNT_DONE,Account registered
 2026-04-14 11:44:37,crater9671@cock.li,SUCCESS,ACCOUNT_DONE,Account registered
+2026-04-15 00:08:19,whiskey8589@cock.li,SUCCESS,ACCOUNT_DONE,Account registered
+2026-04-15 00:09:36,deluge5139@cock.li,FAILED,SIGNUP_IN_PROGRESS,"FormException: Failed to fill Full Name: Message: Failed to decode response from marionette
+"
+2026-04-15 00:09:36,deluge5139@cock.li,FAILED,SIGNUP_IN_PROGRESS,"FormException: Failed to fill Full Name: Message: Failed to decode response from marionette
+"
+2026-04-15 00:09:36,deluge5139@cock.li,FAILED,ACCOUNT_DONE,Failed at WORKFLOW_ERROR
+2026-04-15 00:25:16,dine1888@cock.li,SUCCESS,ACCOUNT_DONE,Account registered
+2026-04-15 00:35:37,cobalt2514@cock.li,SUCCESS,ACCOUNT_DONE,Account registered
+2026-04-15 00:36:33,define9704@cock.li,FAILED,SIGNUP_IN_PROGRESS,"FormException: Failed to fill Full Name: Message: WebDriver session does not exist, or is not active; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:8:8
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:202:5
+InvalidSessionIDError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:472:5
+assert.that/<@chrome://remote/content/shared/webdriver/Assert.sys.mjs:581:13
+assert.session@chrome://remote/content/shared/webdriver/Assert.sys.mjs:38:4
+dispatch@chrome://remote/content/marionette/server.sys.mjs:315:19
+execute@chrome://remote/content/marionette/server.sys.mjs:289:16
+onPacket/<@chrome://remote/content/marionette/server.sys.mjs:262:20
+onPacket@chrome://remote/content/marionette/server.sys.mjs:263:9
+_onJSONObjectReady/<@chrome://remote/content/marionette/transport.sys.mjs:494:20
+"
+2026-04-15 00:36:33,define9704@cock.li,FAILED,SIGNUP_IN_PROGRESS,"FormException: Failed to fill Full Name: Message: WebDriver session does not exist, or is not active; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:8:8
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:202:5
+InvalidSessionIDError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:472:5
+assert.that/<@chrome://remote/content/shared/webdriver/Assert.sys.mjs:581:13
+assert.session@chrome://remote/content/shared/webdriver/Assert.sys.mjs:38:4
+dispatch@chrome://remote/content/marionette/server.sys.mjs:315:19
+execute@chrome://remote/content/marionette/server.sys.mjs:289:16
+onPacket/<@chrome://remote/content/marionette/server.sys.mjs:262:20
+onPacket@chrome://remote/content/marionette/server.sys.mjs:263:9
+_onJSONObjectReady/<@chrome://remote/content/marionette/transport.sys.mjs:494:20
+"
+2026-04-15 00:36:33,define9704@cock.li,FAILED,ACCOUNT_DONE,Failed at WORKFLOW_ERROR
+2026-04-15 00:36:49,defiant6447@cock.li,FAILED,SIGNUP_IN_PROGRESS,"NavigationException: Unexpected error during signup: Message: Failed to decode response from marionette
+"
+2026-04-15 00:36:49,defiant6447@cock.li,FAILED,SIGNUP_IN_PROGRESS,"NavigationException: Unexpected error during signup: Message: Failed to decode response from marionette
+"
+2026-04-15 00:36:49,defiant6447@cock.li,FAILED,ACCOUNT_DONE,Failed at WORKFLOW_ERROR
+2026-04-15 00:41:40,define9704@cock.li,SUCCESS,ACCOUNT_DONE,Account registered
+2026-04-15 00:47:54,defiant6447@cock.li,SUCCESS,ACCOUNT_DONE,Account registered
+2026-04-15 00:51:23,clear851@cock.li,SUCCESS,ACCOUNT_DONE,Account registered
+2026-04-15 01:52:32,castle9952@cock.li,SIGNUP_FAILED,Signup with OTP failed
+2026-04-15 09:41:43,echo730@cock.li,SIGNUP_FAILED,Signup with OTP failed
+2026-04-15 09:43:49,echo730@cock.li,ERROR,"Message: Given xpath expression ""//input[@placeholder*='OTP'] | //input[@placeholder*='otp']"" is inv"
+2026-04-15 09:50:25,echo730@cock.li,FAILED,Signup failed
+2026-04-15 10:04:34,crash1906@cock.li,SUCCESS,Account processed successfully
+2026-04-15T10:24:28.424032,cubic7090@cock.li,SUCCESS,Account processed successfully
+2026-04-15 15:49:28,denial7893@cock.li,CANCELLED,User cancelled login step
+2026-04-15 15:49:30,denial7893@cock.li,CANCELLED,User interrupted workflow

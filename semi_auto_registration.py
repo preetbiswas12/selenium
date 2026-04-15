@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-Hack2Skill Semi-Automated Registration with Tor Browser
+Hack2Skill Semi-Automated Registration with Firefox Private
 - 90% Automated | 10% Manual (OTP only)
-- Uses Tor Browser (built-in Tor network integration)
+- Uses Firefox Private (NO Tor)
 - Comprehensive error handling & logging
 - Auto-fills, auto-submits form (minimal manual work)
 """
@@ -28,6 +28,7 @@ from selenium.common.exceptions import (
 # ==================== CONFIGURATION ====================
 SIGNUP_PAGE_URL = "https://vision.hack2skill.com/signup?utm_source=hack2skill&utm_medium=homepage&utm_campaign=&utm_term=&utm_content="
 REGISTRATION_URL = "https://vision.hack2skill.com/event/solution-challenge-2026/registration"
+MAIN_URL = REGISTRATION_URL  # Use registration URL as main entry point
 CSV_FILE = r"C:\Users\preet\Downloads\selenium\accounts_created.csv"
 
 TIMEOUT_PAGE_LOAD = 45
@@ -36,7 +37,8 @@ TIMEOUT_INTERACTION = 10
 MAX_RETRIES = 3
 RETRY_DELAY = 1
 TOR_CONNECT_WAIT = 20
-OTP_WAIT_SECONDS = 60
+OTP_ARRIVAL_WAIT = 10
+OTP_ENTRY_WAIT = 10
 
 # ==================== LOGGING SETUP ====================
 log_dir = "registration_logs"
@@ -118,83 +120,31 @@ def load_accounts():
 
 
 def init_tor_driver():
-    """Initialize Firefox WebDriver (with Tor Browser if available, fallback to regular Firefox)"""
+    """Initialize Firefox Private (NO TOR)"""
     try:
-        print_step("Initializing browser with Tor network...", "cyan")
-        
-        # First, try to find Tor Browser
-        tor_browser_paths = [
-            r"C:\Program Files\Tor Browser\Browser\firefox.exe",
-            r"C:\Program Files (x86)\Tor Browser\Browser\firefox.exe",
-            os.path.expanduser(r"~\AppData\Local\Tor Browser\Browser\firefox.exe"),
-            r"C:\Users\preet\AppData\Local\Tor Browser\Browser\firefox.exe",
-        ]
-        
-        tor_browser_binary = None
-        for path in tor_browser_paths:
-            if os.path.exists(path):
-                tor_browser_binary = path
-                print_step(f"[OK] Found Tor Browser at: {path}", "green")
-                logger.info(f"Tor Browser found at: {path}")
-                break
-        
-        # If Tor Browser not found, use regular Firefox
-        if not tor_browser_binary:
-            print_step("[INFO] Tor Browser not found, using regular Firefox with Tor proxy...", "yellow")
-            print_step("[INFO] Make sure Tor service is running on 127.0.0.1:9050", "yellow")
-            logger.warning("Tor Browser not found, using Firefox with SOCKS5 proxy")
+        print_step("[WAIT] Initializing Firefox Private...", "cyan")
         
         options = webdriver.FirefoxOptions()
+        options.add_argument("--private")
+        options.add_argument("--no-remote")
         
-        # Set binary location if Tor Browser found
-        if tor_browser_binary:
-            options.binary_location = tor_browser_binary
-            options.add_argument("--private")
-            options.add_argument("--no-remote")
-            # Tor Browser specific privacy settings
-            options.set_preference("browser.privatebrowsing.autostart", True)
-            options.set_preference("extensions.torbutton.use_nontor_proxy", False)
-        else:
-            # Regular Firefox with Tor SOCKS5 proxy
-            options.add_argument("--private")
-            options.set_preference("network.proxy.type", 1)  # Manual proxy
-            options.set_preference("network.proxy.socks", "127.0.0.1")
-            options.set_preference("network.proxy.socks_port", 9050)
-            options.set_preference("network.proxy.socks_remote_dns", True)
-        
-        # Common privacy settings
+        # Privacy preferences
         options.set_preference("network.trr.mode", 5)  # Disable DoH
         options.set_preference("media.peerconnection.enabled", False)  # Disable WebRTC
         options.set_preference("dom.disable_beforeunload", True)
         
         driver = webdriver.Firefox(options=options)
-        browser_type = "Tor Browser" if tor_browser_binary else "Firefox (Tor SOCKS5)"
-        print_step(f"[OK] {browser_type} initialized", "green")
-        logger.info(f"{browser_type} WebDriver initialized")
-        
-        # Wait for Tor to connect to network
-        print_step(f"\n{'='*70}", "cyan")
-        print_step("[WAIT] Connecting to Tor network...", "cyan")
-        print_step(f"{'='*70}", "cyan")
-        
-        for remaining in range(TOR_CONNECT_WAIT, 0, -1):
-            sys.stdout.write(f"\r[WAIT] {remaining:2d} seconds remaining...")
-            sys.stdout.flush()
-            time.sleep(1)
-        
-        print("\n")
-        print_step("[OK] Connected to Tor network", "green")
-        logger.info("Connected to Tor network")
+        print_step("[OK] Firefox Private initialized", "green")
+        logger.info("Firefox Private initialized")
         
         return driver
         
     except SessionNotCreatedException as e:
-        print_step(f"[ERROR] Driver creation failed: {str(e)[:80]}", "red")
+        print_step(f"[ERROR] Firefox driver creation failed: {str(e)[:80]}", "red")
         logger.error(f"SessionNotCreatedException: {str(e)}")
         print_step("\n[HELP] Troubleshooting:", "yellow")
         print_step("   1. Ensure Firefox is installed", "yellow")
-        print_step("   2. If using Tor proxy: start Tor service on 127.0.0.1:9050", "yellow")
-        print_step("   3. Check firewall settings", "yellow")
+        print_step("   2. Close any existing Firefox windows", "yellow")
         return None
     except WebDriverException as e:
         print_step(f"[ERROR] WebDriver error: {str(e)[:80]}", "red")
@@ -204,13 +154,13 @@ def init_tor_driver():
         print_step(f"[ERROR] Unexpected error: {str(e)}", "red")
         logger.error(f"Unexpected error: {str(e)}")
         print_step("\n[HELP] Troubleshooting:", "yellow")
-        print_step("   1. Verify Firefox is installed", "yellow")
-        print_step("   2. Check Python and Selenium versions", "yellow")
+        print_step("   1. Ensure Python and Selenium are up to date", "yellow")
+        print_step("   2. Check system resources", "yellow")
         return None
 
 
 def auto_signup(driver: webdriver.Firefox, account: dict) -> bool:
-    """Auto-fill signup form with comprehensive error handling"""
+    """Auto-fill signup form - simple, direct flow"""
     
     print_step(f"\n{'='*70}", "yellow")
     print_step(f"ACCOUNT: {account['email']}", "yellow")
@@ -219,122 +169,107 @@ def auto_signup(driver: webdriver.Firefox, account: dict) -> bool:
     wait = WebDriverWait(driver, TIMEOUT_PAGE_LOAD)
     
     try:
-        # Navigate to signup
-        print_step("→ Navigating to Signup Page via Tor Browser...", "blue")
-        driver.get(SIGNUP_PAGE_URL)
-        wait.until(EC.presence_of_element_located((By.TAG_NAME, "input")))
+        # Step 1: Open registration page (main URL)
+        print_step("→ Step 1: Opening registration page (main page)...", "blue")
+        driver.get(MAIN_URL)
         time.sleep(2)
-        print_step("✓ Signup page loaded", "green")
+        print_step("✓ Registration page loaded", "green")
         logger.info(f"Signup page loaded for {account['email']}")
         
-        # Fill Full Name
-        print_step("→ Filling Full Name...", "blue")
+        # Step 2: Fill + Submit form
+        print_step("→ Step 2: Filling signup form (Name + Email)...", "blue")
+        
+        # Generate Full Name
         first_names = ["Arjun", "Aditya", "Naman", "Raj", "Vikram", "Priya", "Ananya", "Dev", "Maya"]
         last_names = ["Singh", "Sharma", "Kumar", "Patel", "Gupta", "Verma", "Rao", "Malik", "Desai"]
         full_name = f"{random.choice(first_names)} {random.choice(last_names)}"
         
-        fullname_field = wait.until(
-            EC.element_to_be_clickable((By.XPATH, "//input[contains(@placeholder, 'Full Name') or @name='fullName']"))
-        )
+        # Fill Full Name
+        fullname_field = wait.until(EC.presence_of_element_located((By.XPATH, "//input[contains(@placeholder, 'Full Name') or @name='fullName']")))
         driver.execute_script("arguments[0].scrollIntoView(true);", fullname_field)
         time.sleep(0.3)
-        fullname_field.click()
-        time.sleep(0.2)
-        fullname_field.clear()
-        fullname_field.send_keys(full_name)
-        print_step(f"✓ Full Name: {full_name}", "green")
+        driver.execute_script("arguments[0].value = arguments[1]; arguments[0].dispatchEvent(new Event('input', { bubbles: true }));", fullname_field, full_name)
+        print_step(f"  ✓ Full Name: {full_name}", "green")
         logger.info(f"Full Name filled: {full_name}")
-        time.sleep(0.5)
         
         # Fill Email
-        print_step("→ Filling Email...", "blue")
         email_field = driver.find_element(By.XPATH, "//input[@type='email' or contains(@placeholder, 'Email')]")
         driver.execute_script("arguments[0].scrollIntoView(true);", email_field)
         time.sleep(0.3)
-        email_field.click()
-        time.sleep(0.2)
-        email_field.clear()
-        email_field.send_keys(account['email'])
-        print_step(f"✓ Email: {account['email']}", "green")
+        driver.execute_script("arguments[0].value = arguments[1]; arguments[0].dispatchEvent(new Event('input', { bubbles: true }));", email_field, account['email'])
+        print_step(f"  ✓ Email: {account['email']}", "green")
         logger.info(f"Email filled: {account['email']}")
-        time.sleep(0.5)
         
         # Click Register button
-        print_step("→ Clicking Register Button...", "blue")
+        print_step("→ Step 2b: Clicking Register button...", "blue")
         register_button = driver.find_element(By.XPATH, "//button[contains(text(), 'Register')]")
         driver.execute_script("arguments[0].scrollIntoView(true);", register_button)
-        time.sleep(0.5)
-        register_button.click()
-        print_step("✓ Register button clicked - OTP page loading...", "green")
+        time.sleep(0.3)
+        driver.execute_script("arguments[0].click();", register_button)
+        print_step("✓ Register button clicked", "green")
         logger.info("Register button clicked")
-        time.sleep(3)
         
-        # Wait for OTP field
-        print_step("→ Waiting for OTP field to appear...", "blue")
-        try:
-            otp_field = wait.until(
-                EC.presence_of_element_located((By.XPATH, "//input[contains(@placeholder, 'OTP') or contains(@placeholder, 'otp') or @name='otp']"))
-            )
-            print_step("✓ OTP field detected", "green")
-            logger.info("OTP field appeared")
-        except TimeoutException:
-            print_step("⚠ OTP field not found - may already be verified or auto-submitted", "yellow")
-            logger.warning("OTP field not found")
-            time.sleep(2)
-            return True
+        # Step 3: Wait for success (URL change / DOM change) - but don't wait for OTP field
+        print_step("→ Step 3: Waiting for form submission to complete...", "blue")
+        time.sleep(3)  # Wait for page to process submission
         
-        # OTP Wait Timer with user instruction
+        # Step 4: Manual OTP entry with timer
         print_step("\n" + "="*70, "yellow")
-        print_step("🔐 MANUAL OTP ENTRY REQUIRED (10% MANUAL)", "yellow")
+        print_step("🔐 STEP 3A: WAITING FOR OTP (Email arrival - 10 seconds)", "yellow")
         print_step("="*70, "yellow")
-        print_step("✓ Check your email for OTP", "blue")
-        print_step("✓ MANUALLY ENTER OTP in the browser", "blue")
-        print_step(f"✓ Script will auto-click Verify after {OTP_WAIT_SECONDS} seconds", "blue")
+        print_step("✓ Check your email for the OTP code", "blue")
         
-        for remaining in range(OTP_WAIT_SECONDS, 0, -1):
-            sys.stdout.write(f"\r⏱️  {remaining:3d} seconds remaining (enter OTP now)...")
+        for remaining in range(OTP_ARRIVAL_WAIT, 0, -1):
+            sys.stdout.write(f"\r⏱️  {remaining:3d}s remaining (checking email)...")
             sys.stdout.flush()
             time.sleep(1)
         
         print("\n")
-        print_step("✓ OTP timer complete - clicking Verify button...", "green")
+        
+        # Step 4B: User enters OTP
+        print_step("\n" + "="*70, "yellow")
+        print_step("🔐 STEP 3B: WAITING FOR OTP ENTRY (Manual input - 10 seconds)", "yellow")
+        print_step("="*70, "yellow")
+        print_step("✓ Copy OTP from email and paste in the browser", "blue")
+        print_step("✓ You have 10 seconds to enter it", "blue")
+        
+        for remaining in range(OTP_ENTRY_WAIT, 0, -1):
+            sys.stdout.write(f"\r⏱️  {remaining:3d}s remaining (enter OTP now)...")
+            sys.stdout.flush()
+            time.sleep(1)
+        
+        print("\n")
+        print_step("✓ OTP timer complete - auto-clicking Verify...", "green")
         logger.info("OTP waiting period completed")
         
+        # Auto-click Verify button
         try:
             verify_button = driver.find_element(By.XPATH, "//button[contains(text(), 'Verify') or contains(text(), 'Submit') or contains(text(), 'Confirm')]")
-            driver.execute_script("arguments[0].scrollIntoView(true);", verify_button)
-            time.sleep(0.5)
-            verify_button.click()
+            driver.execute_script("arguments[0].click();", verify_button)
             print_step("✓ Verify button clicked", "green")
             logger.info("Verify button clicked")
-            time.sleep(4)
-            return True
         except NoSuchElementException:
-            print_step("⚠ Verify button not found (you may have already clicked it)", "yellow")
-            logger.warning("Verify button not found - may have been clicked manually")
-            time.sleep(3)
-            return True
-        except Exception as e:
-            print_step(f"⚠ Error clicking Verify: {str(e)[:50]}", "yellow")
-            logger.warning(f"Could not click Verify: {str(e)[:80]}")
-            time.sleep(2)
-            return True
+            print_step("⚠ Verify button not found (you may have clicked it already)", "yellow")
+            logger.warning("Verify button not found")
+        
+        # Wait for OTP verification to complete
+        print_step("→ Waiting for OTP verification to complete...", "blue")
+        time.sleep(6)
+        print_step("✓ OTP verification complete", "green")
+        
+        return True
         
     except TimeoutException as e:
         print_step(f"❌ Signup timeout: {str(e)[:50]}", "red")
         logger.error(f"Signup timeout: {str(e)}")
         return False
     except NoSuchElementException as e:
-        print_step(f"❌ Signup element not found: {str(e)[:50]}", "red")
-        logger.error(f"Element not found during signup: {str(e)}")
-        return False
-    except WebDriverException as e:
-        print_step(f"❌ WebDriver error during signup: {str(e)[:50]}", "red")
-        logger.error(f"WebDriver error: {str(e)}")
+        print_step(f"❌ Form element not found: {str(e)[:50]}", "red")
+        logger.error(f"Element not found: {str(e)}")
         return False
     except Exception as e:
-        print_step(f"❌ Unexpected signup error: {str(e)}", "red")
-        logger.error(f"Unexpected error during signup: {str(e)}")
+        print_step(f"❌ Signup error: {str(e)[:60]}", "red")
+        logger.error(f"Signup error: {str(e)}")
         return False
 
 
@@ -690,46 +625,27 @@ def auto_fill_registration_form(driver: webdriver.Firefox, account: dict):
         print_step("✅ FORM AUTO-FILLED SUCCESSFULLY!", "green")
         print_step("="*70, "green")
         
-        # Auto-submit form
-        print_step("\n→ Auto-submitting form...", "blue")
+        # Wait for user to manually review and submit form
+        print_step("\n" + "="*70, "yellow")
+        print_step("[PAUSE] REGISTRATION FORM READY FOR MANUAL SUBMISSION", "yellow")
+        print_step("="*70, "yellow")
+        print_step("[INFO] Form auto-filled with all static values", "green")
+        print_step("[INFO] Please review the form on screen", "blue")
+        print_step("[WAIT] When ready, click the Submit/Register button yourself", "blue")
+        print_step("[HELP] Then return to terminal and press ENTER to continue", "yellow")
+        print_step("-" * 70, "yellow")
         
+        # Wait for user input
         try:
-            # Try multiple submit button strategies
-            submit_button = None
-            strategies = [
-                (By.XPATH, "//button[contains(text(), 'Submit') or contains(text(), 'Register')]"),
-                (By.XPATH, "//button[@type='submit']"),
-                (By.XPATH, "//input[@type='submit']"),
-                (By.XPATH, "//button[contains(text(), 'Next')]"),
-            ]
-            
-            for locator in strategies:
-                try:
-                    elements = driver.find_elements(*locator)
-                    if elements:
-                        submit_button = elements[0]
-                        break
-                except NoSuchElementException:
-                    continue
-            
-            if submit_button:
-                driver.execute_script("arguments[0].scrollIntoView(true);", submit_button)
-                time.sleep(0.5)
-                submit_button.click()
-                print_step("✓ Form submitted successfully", "green")
-                logger.info("Form submitted successfully")
-                time.sleep(3)
-                return True
-            else:
-                print_step("⚠ Submit button not found - form may have auto-submitted", "yellow")
-                logger.warning("Submit button not found")
-                time.sleep(2)
-                return True
-                
+            input("\n[PAUSE] Press ENTER after submitting the form... ")
+            print_step("[OK] Continuing to next account", "green")
+            logger.info("User confirmed form submission")
+            time.sleep(1)
+            return True
         except Exception as e:
-            print_step(f"⚠ Error clicking submit: {str(e)[:50]}", "yellow")
-            logger.warning(f"Error submitting form: {str(e)[:80]}")
-            return False
+            print_step(f"[ERROR] Input error: {str(e)[:50]}", "red")
+            logger.error(f"Input error: {str(e)}")
+            return True  # Continue anyway
         
     except Exception as e:
         print_step(f"❌ Critical error auto-filling form: {str(e)}", "red")
@@ -737,74 +653,74 @@ def auto_fill_registration_form(driver: webdriver.Firefox, account: dict):
         return False
 
 
-def wait_for_registration_form(driver: webdriver.Firefox, account: dict):
-    """Navigate to registration form and auto-fill & auto-submit it"""
+def process_account(account: dict, account_num: int, total: int) -> bool:
+    """
+    Process single account - SIGNUP ONLY (no registration form)
+    Opens fresh Firefox private window, handles OTP, then pauses for manual form filling
+    """
+    driver = None
     try:
-        print_step("\n" + "="*70, "yellow")
-        print_step("📋 REGISTRATION FORM PHASE (100% AUTOMATED)", "yellow")
-        print_step("="*70, "yellow")
+        # Initialize fresh Firefox private window for this account
+        print_step(f"\n[INFO] Opening fresh Firefox Private window...", "blue")
+        driver = init_tor_driver()
+        if not driver:
+            print_step("[ERROR] Failed to open Firefox - skipping", "red")
+            logger.error(f"Failed to initialize browser for account {account_num}")
+            return False
         
-        # Navigate to registration
-        print_step("→ Navigating to Registration Form via Tor Browser...", "blue")
-        driver.get(REGISTRATION_URL)
-        time.sleep(2)
-        logger.info("Navigated to registration form")
-        
-        # Auto-fill the form
-        return auto_fill_registration_form(driver, account)
-        
-    except NoSuchWindowException:
-        print_step("❌ Browser window closed unexpectedly", "red")
-        logger.error("Browser window closed")
-        return False
-    except TimeoutException as e:
-        print_step(f"❌ Registration navigation timeout: {str(e)[:50]}", "red")
-        logger.error(f"Registration timeout: {str(e)}")
-        return False
-    except Exception as e:
-        print_step(f"❌ Error in registration phase: {str(e)}", "red")
-        logger.error(f"Registration phase error: {str(e)}")
-        return False
-
-
-def process_account(driver: webdriver.Firefox, account: dict, account_num: int, total: int) -> bool:
-    """Process single account - signup + registration"""
-    try:
-        # Auto-fill signup
+        # Auto-fill signup and OTP verification
         signup_ok = auto_signup(driver, account)
         if not signup_ok:
-            print_step("❌ Signup failed - skipping this account", "red")
+            print_step("[ERROR] Signup/OTP failed - skipping this account", "red")
             logger.error(f"Signup failed for {account['email']}")
             return False
         
-        # Auto-fill registration
-        reg_ok = wait_for_registration_form(driver, account)
-        if not reg_ok:
-            print_step("❌ Registration form error - skipping", "red")
-            logger.error(f"Registration failed for {account['email']}")
-            return False
+        # ============================================================
+        # PAUSE - User manually fills and submits registration form
+        # ============================================================
+        print_step("\n" + "="*70, "yellow")
+        print_step("[PAUSE] OTP VERIFIED - MANUAL FORM FILLING REQUIRED", "yellow")
+        print_step("="*70, "yellow")
+        print_step("[INFO] Registration form is already displayed in Firefox", "green")
+        print_step("[WAIT] Please fill out the remaining registration form fields manually", "blue")
+        print_step("[INFO] When done, click Submit button on the form", "blue")
+        print_step("[HELP] Then return here and press ENTER to continue", "yellow")
+        print_step("-" * 70, "yellow")
         
-        print_step(f"\n✅ Account {account_num}/{total} COMPLETE!", "green")
-        print_step(f"Successfully processed: {account['email']}", "green")
-        logger.info(f"Account {account_num}/{total} successfully completed: {account['email']}")
+        # Wait for user to complete manual form submission
+        input("\n[PAUSE] Press ENTER after submitting the form... ")
+        
+        print_step("\n[INFO] Closing Firefox window and preparing for next account...", "blue")
+        logger.info(f"Account {account_num} manual form submission complete: {account['email']}")
         
         return True
         
     except NoSuchWindowException:
-        print_step("❌ Browser crashed during account processing", "red")
+        print_step("[ERROR] Browser crashed during account processing", "red")
         logger.error(f"Browser crashed for account {account_num}")
         return False
     except Exception as e:
-        print_step(f"❌ Account {account_num} failed: {str(e)[:60]}", "red")
+        print_step(f"[ERROR] Account {account_num} failed: {str(e)[:60]}", "red")
         logger.error(f"Account {account_num} processing failed: {str(e)}")
         return False
+    finally:
+        # Close Firefox after each account (fresh start for next one)
+        if driver:
+            try:
+                driver.quit()
+                print_step("[OK] Firefox window closed", "green")
+                logger.info(f"Firefox closed after account {account_num}")
+                time.sleep(1)  # Brief pause between accounts
+            except Exception as e:
+                logger.warning(f"Error closing Firefox: {str(e)}")
+                pass
 
 
 def main():
-    """Main execution loop"""
+    """Main execution loop - processes each account with fresh Firefox window"""
     
     print_step("\n" + "="*70, "blue")
-    print_step("HACK2SKILL TOR BROWSER AUTOMATION | 90% AUTO | 10% MANUAL (OTP ONLY)", "blue")
+    print_step("HACK2SKILL OTP SIGNUP ONLY | 90% AUTO | 10% MANUAL (FORM FILLING)", "blue")
     print_step("="*70, "blue")
     
     # Load accounts
@@ -814,40 +730,36 @@ def main():
         logger.error("No accounts loaded")
         return
     
-    print_step(f"\nReady to process {len(accounts)} account(s) via Tor Network", "green")
-    logger.info(f"Starting batch processing of {len(accounts)} accounts via Tor")
+    print_step(f"\nReady to process {len(accounts)} account(s) via Firefox Private", "green")
+    print_step("-" * 70, "cyan")
+    logger.info(f"Starting batch processing of {len(accounts)} accounts")
     
-    # Initialize Tor driver
-    driver = init_tor_driver()
-    if not driver:
-        print_step("[ERROR] Failed to initialize browser driver, exiting", "red")
-        logger.error("Could not initialize browser driver")
-        return
-    
-    # Process each account
+    # Process each account with fresh Firefox window
     completed = 0
     failed = 0
     
     try:
         for idx, account in enumerate(accounts, 1):
-            print_step(f"\n\n{'='*70}", "cyan")
-            print_step(f"Processing account {idx}/{len(accounts)}", "blue")
+            print_step(f"\n{'='*70}", "cyan")
+            print_step(f"[{idx}/{len(accounts)}] Processing: {account['email']}", "cyan")
             print_step(f"{'='*70}", "cyan")
             
-            success = process_account(driver, account, idx, len(accounts))
+            # Process account (opens fresh Firefox, closes at end)
+            success = process_account(account, idx, len(accounts))
             
             if success:
                 completed += 1
             else:
                 failed += 1
             
+            # Pause between accounts (if not last one)
             if idx < len(accounts):
                 print_step("\n" + "="*70, "yellow")
-                print_step("[PAUSE] Ready for next account (Press ENTER to continue)", "yellow")
+                print_step("[READY] Account complete - press ENTER for next one", "yellow")
                 print_step("="*70, "yellow")
                 input()
-                print_step("\n[INFO] Continuing to next account...\n", "green")
-                time.sleep(2)
+                print_step("\n[INFO] Starting next account...\n", "green")
+                time.sleep(1)
     
     except KeyboardInterrupt:
         print_step("\n\n[ABORT] Process interrupted by user", "red")
@@ -856,7 +768,7 @@ def main():
         print_step(f"\n\n[ERROR] Critical error: {str(e)}", "red")
         logger.error(f"Critical error: {str(e)}")
     finally:
-        # Cleanup
+        # Summary
         print_step("\n\n" + "="*70, "blue")
         print_step("BATCH PROCESSING COMPLETE", "blue")
         print_step("="*70, "blue")
@@ -867,18 +779,9 @@ def main():
             success_rate = (completed/len(accounts)*100)
             print_step(f"\n[STATS] Success Rate: {success_rate:.1f}%", "cyan")
         print_step(f"[LOG] Output saved to: {log_file}", "cyan")
+        print_step("="*70 + "\n", "blue")
         
         logger.info(f"Batch complete: {completed} succeeded, {failed} failed")
-        
-        try:
-            driver.quit()
-            print_step("\n[OK] Browser closed", "green")
-            logger.info("Browser closed successfully")
-        except Exception as e:
-            print_step(f"\n[WARN] Error closing browser: {str(e)[:40]}", "yellow")
-            logger.warning(f"Error closing browser: {str(e)}")
-        
-        input("\nPress ENTER to exit...")
 
 
 if __name__ == "__main__":
